@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="assets/dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Caveat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Caveat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/Caveat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/Caveat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Caveat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Caveat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Caveat-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Caveat-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Caveat-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Marck Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/MarckScript-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Marck Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/MarckScript-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Marck Script';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/MarckScript-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-italic-cyrillic-ext.woff") format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-italic-cyrillic.woff") format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-italic-vietnamese.woff") format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-italic-latin-ext.woff") format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-italic-latin.woff") format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Nunito-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Nunito-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Nunito-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/Nunito-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Nunito-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Nunito-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/Nunito-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/Nunito-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/Nunito-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/Nunito-latin-ext.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/Nunito-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Prata-cyrillic-ext.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Prata-cyrillic.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Prata-vietnamese.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin */
+@font-face {
+  font-family: 'Prata';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/Prata-latin.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #E8B4B8; color: #3A3A34; }
+</style>
+</helmet>
+
+
+
+<div style="min-height:100vh;background:#FAF6EC;font-family:'Nunito',system-ui,sans-serif;color:#3E3B33;position:relative;overflow-x:hidden;-webkit-font-smoothing:antialiased">
+
+  <!-- paper grain -->
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.6;background-image:radial-gradient(rgba(62,59,51,.05) 1.2px,transparent 1.2px);background-size:22px 22px"></div>
+
+  <!-- confetti: flowers, hearts, ribbons -->
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.28;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22320%22%20height%3D%22320%22%20viewBox%3D%220%200%20320%20320%22%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2244.5%22%20rx%3D%226.3%22%20ry%3D%228.7%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%280%2050%2055%29%22/%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2244.5%22%20rx%3D%226.3%22%20ry%3D%228.7%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%2890%2050%2055%29%22/%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2244.5%22%20rx%3D%226.3%22%20ry%3D%228.7%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%28180%2050%2055%29%22/%3E%3Cellipse%20cx%3D%2250%22%20cy%3D%2244.5%22%20rx%3D%226.3%22%20ry%3D%228.7%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%28270%2050%2055%29%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2255%22%20r%3D%225.1%22%20fill%3D%22%235B8DBF%22%20opacity%3D%22.55%22/%3E%3Cpath%20d%3D%22M230%2044.08%20C%20217.4%2036.4%20224.0%2027.4%20230%2035.2%20C%20236.0%2027.4%20242.6%2036.4%20230%2044.08%20Z%22%20fill%3D%22%23D64545%22/%3E%3Cg%3E%3Cpath%20d%3D%22M138%20132%20L150%20140%20L138%20148%20Z%22%20fill%3D%22%239B85C4%22/%3E%3Cpath%20d%3D%22M162%20132%20L150%20140%20L162%20148%20Z%22%20fill%3D%22%239B85C4%22/%3E%3Ccircle%20cx%3D%22150%22%20cy%3D%22140%22%20r%3D%223.0%22%20fill%3D%22%239B85C4%22/%3E%3C/g%3E%3Cellipse%20cx%3D%22260%22%20cy%3D%22180.2%22%20rx%3D%225.9%22%20ry%3D%228.1%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%280%20260%20190%29%22/%3E%3Cellipse%20cx%3D%22260%22%20cy%3D%22180.2%22%20rx%3D%225.9%22%20ry%3D%228.1%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%2890%20260%20190%29%22/%3E%3Cellipse%20cx%3D%22260%22%20cy%3D%22180.2%22%20rx%3D%225.9%22%20ry%3D%228.1%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28180%20260%20190%29%22/%3E%3Cellipse%20cx%3D%22260%22%20cy%3D%22180.2%22%20rx%3D%225.9%22%20ry%3D%228.1%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28270%20260%20190%29%22/%3E%3Ccircle%20cx%3D%22260%22%20cy%3D%22190%22%20r%3D%224.8%22%20fill%3D%22%23D9A441%22%20opacity%3D%22.55%22/%3E%3Cpath%20d%3D%22M60%20233.74%20C%2048.45%20226.7%2054.5%20218.45%2060%20225.6%20C%2065.5%20218.45%2071.55%20226.7%2060%20233.74%20Z%22%20fill%3D%22%237E9469%22/%3E%3Cellipse%20cx%3D%22180%22%20cy%3D%22260.9%22%20rx%3D%225.5%22%20ry%3D%227.5%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%280%20180%20270%29%22/%3E%3Cellipse%20cx%3D%22180%22%20cy%3D%22260.9%22%20rx%3D%225.5%22%20ry%3D%227.5%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%2890%20180%20270%29%22/%3E%3Cellipse%20cx%3D%22180%22%20cy%3D%22260.9%22%20rx%3D%225.5%22%20ry%3D%227.5%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%28180%20180%20270%29%22/%3E%3Cellipse%20cx%3D%22180%22%20cy%3D%22260.9%22%20rx%3D%225.5%22%20ry%3D%227.5%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%28270%20180%20270%29%22/%3E%3Ccircle%20cx%3D%22180%22%20cy%3D%22270%22%20r%3D%224.4%22%20fill%3D%22%23C77480%22%20opacity%3D%22.55%22/%3E%3C/svg%3E&quot;);background-size:320px 320px;background-repeat:repeat"></div>
+
+  <div style="position:relative;z-index:1;max-width:600px;margin:0 auto">
+
+    <!-- ===================== NAV ===================== -->
+    <nav style="position:sticky;top:0;z-index:30;background:rgba(250,246,236,0.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:2px dashed #D4C4A2">
+      <div style="display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;padding:11px 12px;font-family:'Nunito';font-weight:800;font-size:13px;letter-spacing:.01em">
+        <a href="#when" style="color:#5B8DBF;text-decoration:none;padding:3px 4px;border-radius:6px" style-hover="background:#E1EAF3">Когда</a>
+        <span style="color:#D4C4A2">·</span>
+        <a href="#where" style="color:#7E9469;text-decoration:none;padding:3px 4px;border-radius:6px" style-hover="background:#E4EAD9">Где</a>
+        <span style="color:#D4C4A2">·</span>
+        <a href="#dress" style="color:#9B85C4;text-decoration:none;padding:3px 4px;border-radius:6px" style-hover="background:#EAE3F4">Дресс-код</a>
+        <span style="color:#D4C4A2">·</span>
+        <a href="#gifts" style="color:#D64545;text-decoration:none;padding:3px 4px;border-radius:6px" style-hover="background:#F6E0E0">Подарки</a>
+        <span style="color:#D4C4A2">·</span>
+        <a href="#rsvp" style="color:#C77480;text-decoration:none;padding:3px 6px;border-radius:6px;border:1.5px solid #E8B4B8" style-hover="background:#F5E2E5">RSVP</a>
+      </div>
+    </nav>
+
+    <!-- ===================== HERO — КОЛЛАЖ ===================== -->
+    <section data-screen-label="Hero — коллаж" style="padding:18px 14px 8px">
+      <div style="position:relative;background:#FBF7EE;border-radius:22px;padding:20px 12px 26px;box-shadow:0 2px 0 #EADFC8, inset 0 0 0 2px #F0E6CF">
+        <!-- confetti wash, kept faint so text stays readable -->
+        <div style="position:absolute;inset:0;z-index:0;border-radius:22px;pointer-events:none;opacity:.4;background-image:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22220%22%20height%3D%22220%22%20viewBox%3D%220%200%20220%20220%22%3E%3Cellipse%20cx%3D%2237.2%22%20cy%3D%2235.6%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%2810%2037.2%2035.6%29%22/%3E%3Cellipse%20cx%3D%2229.3%22%20cy%3D%2243.3%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%2882%2029.3%2043.3%29%22/%3E%3Cellipse%20cx%3D%2219.6%22%20cy%3D%2238.1%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%28154%2019.6%2038.1%29%22/%3E%3Cellipse%20cx%3D%2221.5%22%20cy%3D%2227.3%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%28226%2021.5%2027.3%29%22/%3E%3Cellipse%20cx%3D%2232.4%22%20cy%3D%2225.7%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%235B8DBF%22%20transform%3D%22rotate%28298%2032.4%2025.7%29%22/%3E%3Ccircle%20cx%3D%2228%22%20cy%3D%2234%22%20r%3D%223.5%22%20fill%3D%22%23F4E4A1%22/%3E%3Cpath%20d%3D%22M150%2024.56%20C%20141.6%2019.2%20146.0%2013.2%20150%2018.64%20C%20154.0%2013.2%20158.4%2019.2%20150%2024.56%20Z%22%20fill%3D%22%23D64545%22%20transform%3D%22rotate%28-12%20150%2022%29%22/%3E%3Cg%20transform%3D%22rotate%2818%20198%2078%29%22%3E%3Cpath%20d%3D%22M189%2072%20L198%2078%20L189%2084%20Z%22%20fill%3D%22%239B85C4%22/%3E%3Cpath%20d%3D%22M207%2072%20L198%2078%20L207%2084%20Z%22%20fill%3D%22%239B85C4%22/%3E%3Ccircle%20cx%3D%22198%22%20cy%3D%2278%22%20r%3D%222.4%22%20fill%3D%22%239B85C4%22/%3E%3C/g%3E%3Cellipse%20cx%3D%22103.0%22%20cy%3D%22105.1%22%20rx%3D%225.5%22%20ry%3D%224.0%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%28-20%20103.0%20105.1%29%22/%3E%3Cellipse%20cx%3D%22100.2%22%20cy%3D%22114.7%22%20rx%3D%225.5%22%20ry%3D%224.0%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%2852%20100.2%20114.7%29%22/%3E%3Cellipse%20cx%3D%2290.2%22%20cy%3D%22115.0%22%20rx%3D%225.5%22%20ry%3D%224.0%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%28124%2090.2%20115.0%29%22/%3E%3Cellipse%20cx%3D%2286.8%22%20cy%3D%22105.7%22%20rx%3D%225.5%22%20ry%3D%224.0%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%28196%2086.8%20105.7%29%22/%3E%3Cellipse%20cx%3D%2294.7%22%20cy%3D%2299.5%22%20rx%3D%225.5%22%20ry%3D%224.0%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%28268%2094.7%2099.5%29%22/%3E%3Ccircle%20cx%3D%2295%22%20cy%3D%22108%22%20r%3D%223.2%22%20fill%3D%22%23F4E4A1%22/%3E%3Cpath%20d%3D%22M24%20154.24%20C%2016.65%20149.55%2020.5%20144.3%2024%20149.06%20C%2027.5%20144.3%2031.35%20149.55%2024%20154.24%20Z%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%2815%2024%20152%29%22/%3E%3Cellipse%20cx%3D%22186.5%22%20cy%3D%22172.0%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%2825%20186.5%20172.0%29%22/%3E%3Cellipse%20cx%3D%22176.9%22%20cy%3D%22177.3%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%2897%20176.9%20177.3%29%22/%3E%3Cellipse%20cx%3D%22168.8%22%20cy%3D%22169.8%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28169%20168.8%20169.8%29%22/%3E%3Cellipse%20cx%3D%22173.5%22%20cy%3D%22159.8%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28241%20173.5%20159.8%29%22/%3E%3Cellipse%20cx%3D%22184.4%22%20cy%3D%22161.2%22%20rx%3D%226.1%22%20ry%3D%224.4%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28313%20184.4%20161.2%29%22/%3E%3Ccircle%20cx%3D%22178%22%20cy%3D%22168%22%20r%3D%223.5%22%20fill%3D%22%23F4E4A1%22/%3E%3Cg%20transform%3D%22rotate%28-15%2060%20195%29%22%3E%3Cpath%20d%3D%22M52%20189.5%20L60%20195%20L52%20200.5%20Z%22%20fill%3D%22%235B8DBF%22/%3E%3Cpath%20d%3D%22M68%20189.5%20L60%20195%20L68%20200.5%20Z%22%20fill%3D%22%235B8DBF%22/%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%22195%22%20r%3D%222.2%22%20fill%3D%22%235B8DBF%22/%3E%3C/g%3E%3Cpath%20d%3D%22M210%20132.08%20C%20203.175%20127.725%20206.75%20122.85%20210%20127.27%20C%20213.25%20122.85%20216.825%20127.725%20210%20132.08%20Z%22%20fill%3D%22%237E9469%22%20transform%3D%22rotate%288%20210%20130%29%22/%3E%3Cellipse%20cx%3D%22147.6%22%20cy%3D%22205.7%22%20rx%3D%225.0%22%20ry%3D%223.6%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%285%20147.6%20205.7%29%22/%3E%3Cellipse%20cx%3D%22141.7%22%20cy%3D%22212.5%22%20rx%3D%225.0%22%20ry%3D%223.6%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%2877%20141.7%20212.5%29%22/%3E%3Cellipse%20cx%3D%22133.4%22%20cy%3D%22208.9%22%20rx%3D%225.0%22%20ry%3D%223.6%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%28149%20133.4%20208.9%29%22/%3E%3Cellipse%20cx%3D%22134.2%22%20cy%3D%22200.0%22%20rx%3D%225.0%22%20ry%3D%223.6%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%28221%20134.2%20200.0%29%22/%3E%3Cellipse%20cx%3D%22143.0%22%20cy%3D%22198.0%22%20rx%3D%225.0%22%20ry%3D%223.6%22%20fill%3D%22%23C77480%22%20transform%3D%22rotate%28293%20143.0%20198.0%29%22/%3E%3Ccircle%20cx%3D%22140%22%20cy%3D%22205%22%20r%3D%222.9%22%20fill%3D%22%23F4E4A1%22/%3E%3Cpath%20d%3D%22M70%2061.92%20C%2063.7%2057.9%2067.0%2053.4%2070%2057.48%20C%2073.0%2053.4%2076.3%2057.9%2070%2061.92%20Z%22%20fill%3D%22%23D9A441%22%20transform%3D%22rotate%28-20%2070%2060%29%22/%3E%3Cg%20transform%3D%22rotate%2840%20130%2060%29%22%3E%3Cpath%20d%3D%22M123%2055%20L130%2060%20L123%2065%20Z%22%20fill%3D%22%23D64545%22/%3E%3Cpath%20d%3D%22M137%2055%20L130%2060%20L137%2065%20Z%22%20fill%3D%22%23D64545%22/%3E%3Ccircle%20cx%3D%22130%22%20cy%3D%2260%22%20r%3D%222.0%22%20fill%3D%22%23D64545%22/%3E%3C/g%3E%3C/svg%3E&quot;);background-size:140px 140px;background-repeat:repeat"></div>
+        <div style="position:relative;z-index:1">
+        <!-- big brush title: МЫ РЕШИЛИ -->
+        <p style="text-align:center;margin:4px 0 0;line-height:.82;white-space:nowrap">
+          <span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#5B8DBF;display:inline-block;transform:rotate(-6deg) translateY(2px)">М</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#7E9469;display:inline-block;transform:rotate(4deg) translateY(-3px)">Ы</span><span style="display:inline-block;width:clamp(10px,3vw,18px)"></span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#D9A441;display:inline-block;transform:rotate(-4deg)">Р</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#D64545;display:inline-block;transform:rotate(5deg) translateY(-2px)">Е</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#9B85C4;display:inline-block;transform:rotate(-3deg) translateY(3px)">Ш</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#D64545;display:inline-block;transform:rotate(6deg)">И</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#5B8DBF;display:inline-block;transform:rotate(-5deg) translateY(-3px)">Л</span><span style="font-family:'Caveat';font-weight:700;font-size:clamp(30px,9.5vw,52px);color:#C77480;display:inline-block;transform:rotate(4deg)">И</span>
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin:6px 0 10px">
+          <svg width="13" viewBox="0 0 24 24" fill="#E8B4B8" style="transform:rotate(-8deg)"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+          <span style="font-family:'Marck Script',cursive;font-size:25px;color:#5B8DBF">пожениться</span>
+        </div>
+
+        <!-- multicolor names -->
+        <h1 style="text-align:center;font-family:'Caveat';font-weight:700;font-size:56px;line-height:.9;margin:8px 0 2px">
+          <span style="color:#D64545">П</span><span style="color:#7E9469">а</span><span style="color:#9B85C4">ш</span><span style="color:#5B8DBF">а</span>
+          <span style="display:block;font-family:'Marck Script';font-size:26px;color:#C77480;margin:2px 0">и</span>
+          <span style="color:#D64545">А</span><span style="color:#7E9469">л</span><span style="color:#9B85C4">и</span><span style="color:#5B8DBF">н</span><span style="color:#C77480">а</span>
+        </h1>
+        <p style="text-align:center;font-family:'Caveat';font-weight:700;letter-spacing:.06em;font-size:28px;margin:4px 0 2px"><span style="color:#5B8DBF">1</span><span style="color:#D64545">9</span><span style="color:#7E9469">.</span><span style="color:#9B85C4">0</span><span style="color:#D9A441">9</span><span style="color:#C77480">.</span><span style="color:#5B8DBF">2</span><span style="color:#D64545">0</span><span style="color:#7E9469">2</span><span style="color:#9B85C4">6</span></p>
+
+        <!-- portraits as stickers (real photos) -->
+        <div style="display:flex;justify-content:center;align-items:flex-end;gap:0;margin-top:10px;position:relative">
+          <svg width="18" viewBox="0 0 24 24" fill="#D64545" style="position:absolute;left:46%;top:0;opacity:.7;z-index:2"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+          <div style="position:relative;transform:rotate(-4deg);z-index:1">
+            <span style="position:absolute;left:-4px;top:6px;z-index:3;font-family:'Caveat';font-weight:700;font-size:20px;color:#5B8DBF;transform:rotate(-14deg)">жених</span>
+            <sc-if value="{{ groomPhoto }}" hint-placeholder-val="{{ false }}">
+              <img src="assets/groom.png" alt="жених" style="width:170px;min-width:0;flex-shrink:1;height:auto;display:block;filter:drop-shadow(2px 0 0 #F4E4A1) drop-shadow(-2px 0 0 #F4E4A1) drop-shadow(0 2px 0 #F4E4A1) drop-shadow(0 -2px 0 #F4E4A1) drop-shadow(1.4px 1.4px 0 #F4E4A1) drop-shadow(-1.4px 1.4px 0 #F4E4A1) drop-shadow(1.4px -1.4px 0 #F4E4A1) drop-shadow(-1.4px -1.4px 0 #F4E4A1) drop-shadow(0 5px 4px rgba(62,59,51,.28))">
+            </sc-if>
+          </div>
+          <div style="position:relative;transform:rotate(4deg);margin-left:-32px;z-index:2;min-width:0;flex-shrink:1">
+            <span style="position:absolute;left:180px;top:6px;z-index:3;font-family:'Caveat';font-weight:700;font-size:20px;color:#C77480;transform:rotate(16deg)">невеста</span>
+            <sc-if value="{{ bridePhoto }}" hint-placeholder-val="{{ false }}">
+              <img src="assets/bride.png" alt="невеста" style="width:300px;min-width:0;height:auto;display:block;filter:drop-shadow(2px 0 0 #F4E4A1) drop-shadow(-2px 0 0 #F4E4A1) drop-shadow(0 2px 0 #F4E4A1) drop-shadow(0 -2px 0 #F4E4A1) drop-shadow(1.4px 1.4px 0 #F4E4A1) drop-shadow(-1.4px 1.4px 0 #F4E4A1) drop-shadow(1.4px -1.4px 0 #F4E4A1) drop-shadow(-1.4px -1.4px 0 #F4E4A1) drop-shadow(0 5px 4px rgba(62,59,51,.28))">
+            </sc-if>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== #WHEN — РАСПИСАНИЕ ===================== -->
+    <section id="when" data-screen-label="Когда — расписание" style="padding:34px 22px 26px;scroll-margin-top:64px">
+      <div style="text-align:center;margin-bottom:8px">
+        <p style="font-family:'Prata',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#B0A079;margin:0"> </p>
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:44px;color:#5B8DBF;margin:0;line-height:1">Что нас ждёт?</h2>
+      </div>
+
+      <div style="position:relative;max-width:400px;margin:14px auto 0;padding-left:8px">
+        <!-- vertical gradient line -->
+        <div style="position:absolute;left:32px;top:14px;bottom:22px;width:2.5px;border-radius:2px;background:linear-gradient(to bottom,#5B8DBF,#D64545,#D9A441,#9B85C4,#7E9469,#C77480);opacity:.4"></div>
+
+        <!-- День первый -->
+        <div style="margin:0 0 18px 8px">
+          <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:22px;color:#B0A079;letter-spacing:.02em">День первый · 19 сентября 2026</p>
+        </div>
+
+        <!-- Фуршет -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#F5EAD0;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#D9A441" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8 h14 l-2 12 a5 5 0 0 1 -10 0 z"></path><path d="M20 20 v9 M15 31 h10"></path></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#D9A441;line-height:1">16:00 · Фуршет</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Приходите, мы ждём! (Алина нервничает)</p>
+          </div>
+        </div>
+
+        <!-- Выездная церемония -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#F6E0E0;display:flex;align-items:center;justify-content:center">
+            <svg width="26" viewBox="0 0 40 40" fill="none" stroke="#D64545" stroke-width="2.4"><circle cx="15" cy="23" r="9"></circle><circle cx="25" cy="18" r="9"></circle></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#D64545;line-height:1">16:30 · Церемония</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Не плачьте... или плачьте – мы тоже будем</p>
+          </div>
+        </div>
+
+        <!-- Банкет -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#EAE3F4;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#9B85C4" stroke-width="2.2" stroke-linecap="round"><circle cx="23" cy="20" r="10"></circle><path d="M11 9 v10 M13 9 v7 a2 2 0 0 1 -4 0 M11 19 v12"></path></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#9B85C4;line-height:1">17:20 · Торжественный банкет</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Еда, тосты, конкурсы. Всё очень серьёзно.</p>
+          </div>
+        </div>
+
+        <!-- Дискотека -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#E4EAD9;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#7E9469" stroke-width="2.4" stroke-linecap="round"><path d="M16 27 V11 l12 -3 v14"></path><circle cx="13" cy="28" r="4"></circle><circle cx="25" cy="24" r="4"></circle></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#7E9469;line-height:1">23:00 · Дискотека</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Паша будет танцевать. Вы предупреждены.</p>
+          </div>
+        </div>
+
+        <!-- После-вечеринка -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#F5E6E7;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#C77480" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 22 A11 11 0 1 1 18 11 a8 8 0 0 0 10 11 z"></path></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#C77480;line-height:1">∞ · После-вечеринка</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Кому ехать – едут. Остальные продолжают.</p>
+          </div>
+        </div>
+
+        <!-- День второй -->
+        <div style="margin:26px 0 18px 8px">
+          <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:22px;color:#B0A079;letter-spacing:.02em">День второй · 20 сентября 2026</p>
+        </div>
+
+        <!-- Доброе утро (день 2) -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#E1EAF3;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#5B8DBF" stroke-width="2.2"><circle cx="20" cy="13" r="6"></circle><circle cx="20" cy="27" r="6"></circle><circle cx="13" cy="20" r="6"></circle><circle cx="27" cy="20" r="6"></circle><circle cx="20" cy="20" r="4" fill="#5B8DBF" stroke="none"></circle></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#5B8DBF;line-height:1">09:00 · Доброе утро!</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Завтрак для тех, кто остался ночевать</p>
+          </div>
+        </div>
+
+        <!-- Активности -->
+        <div style="display:flex;gap:16px;align-items:flex-start;margin-bottom:22px;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#F5EAD0;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#D9A441" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8 h14 l-2 12 a5 5 0 0 1 -10 0 z"></path><path d="M20 20 v9 M15 31 h10"></path></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#D9A441;line-height:1">12:00 · Активности</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Игры, шашлыки и отдых на свежем воздухе</p>
+          </div>
+        </div>
+
+        <!-- Отъезд -->
+        <div style="display:flex;gap:16px;align-items:flex-start;position:relative">
+          <div style="flex:0 0 auto;width:50px;height:50px;border-radius:50%;background:#EAE3F4;display:flex;align-items:center;justify-content:center">
+            <svg width="24" viewBox="0 0 40 40" fill="none" stroke="#9B85C4" stroke-width="2.2" stroke-linecap="round"><circle cx="23" cy="20" r="10"></circle><path d="M11 9 v10 M13 9 v7 a2 2 0 0 1 -4 0 M11 19 v12"></path></svg>
+          </div>
+          <div style="padding-top:3px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:26px;color:#9B85C4;line-height:1">15:00 · Отъезд</p>
+            <p style="margin:1px 0 0;font-size:14px;color:#7A7566">Обнимаемся, прощаемся и разъезжаемся по домам</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- divider -->
+    <div style="display:flex;align-items:center;gap:10px;padding:0 30px">
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+      <svg width="20" viewBox="0 0 24 24" fill="none" stroke="#C77480" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.8 4.3-2.2 1.7a11 11 0 0 0 5.4 5.4l1.7-2.2 4.3 1.8v3a1.6 1.6 0 0 1-1.7 1.6C11.6 18.7 5.3 12.4 4.9 5.2A1.6 1.6 0 0 1 6.5 3.5z"></path></svg>
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+    </div>
+
+    <!-- ===================== #ORGANIZER — ОРГАНИЗАТОР ===================== -->
+    <section id="organizer" data-screen-label="Организатор" style="padding:26px 22px 26px;scroll-margin-top:64px">
+      <div style="position:relative;background:#F5E6E7;border-radius:22px;padding:26px 22px;text-align:center;overflow:hidden">
+        <svg width="14" viewBox="0 0 24 24" fill="#D64545" style="position:absolute;left:16px;top:16px;opacity:.5;transform:rotate(-12deg)"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+        <svg width="12" viewBox="0 0 24 24" fill="#9B85C4" style="position:absolute;right:20px;top:26px;opacity:.5;transform:rotate(10deg)"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+
+        <p style="font-family:'Prata',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#C77480;margin:0">организатор</p>
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:40px;color:#C77480;margin:2px 0 4px;line-height:1">На связи для вас</h2>
+        <p style="max-width:320px;margin:6px auto 18px;font-size:14.5px;line-height:1.55;color:#5F5A4D">Если у вас появились вопросы или вы хотите приготовить для нас сюрприз — наша организатор всегда на связи</p>
+
+        <a href="tel:+375295569210" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'Nunito';font-weight:800;font-size:16px;color:#fff;background:#C77480;padding:13px 22px;border-radius:14px;box-shadow:0 3px 0 #A85B67" style-hover="background:#B96874">
+          <svg width="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h3l1.8 4.3-2.2 1.7a11 11 0 0 0 5.4 5.4l1.7-2.2 4.3 1.8v3a1.6 1.6 0 0 1-1.7 1.6C11.6 18.7 5.3 12.4 4.9 5.2A1.6 1.6 0 0 1 6.5 3.5z"></path></svg>
+          Марина · +375 29 556-92-10
+        </a>
+      </div>
+    </section>
+
+    <!-- divider -->
+    <div style="display:flex;align-items:center;gap:10px;padding:0 30px">
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+      <svg width="22" viewBox="0 0 24 24" fill="#9BAE8A"><circle cx="12" cy="12" r="3.4" fill="#F4E4A1"></circle><g fill="#EFE7D6" stroke="#9BAE8A" stroke-width="1"><ellipse cx="12" cy="4.5" rx="2" ry="3.4"></ellipse><ellipse cx="12" cy="19.5" rx="2" ry="3.4"></ellipse><ellipse cx="4.5" cy="12" rx="3.4" ry="2"></ellipse><ellipse cx="19.5" cy="12" rx="3.4" ry="2"></ellipse></g><circle cx="12" cy="12" r="3" fill="#F4E4A1"></circle></svg>
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+    </div>
+
+    <!-- ===================== #WHERE — ЛОКАЦИЯ ===================== -->
+    <section id="where" data-screen-label="Где — локация" style="padding:26px 18px 26px;scroll-margin-top:64px">
+      <div style="text-align:center;margin-bottom:14px">
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:44px;color:#7E9469;margin:0;line-height:1">Где это будет?</h2>
+      </div>
+
+      <div style="max-width:440px;margin:0 auto">
+        <div style="position:relative;background:#FBF7EE;border:2px solid #E4D9BE;border-radius:20px;overflow:hidden;box-shadow:0 2px 0 #EADFC8">
+          <div style="height:4px;background:linear-gradient(to right,#5B8DBF,#D64545,#D9A441,#9B85C4,#7E9469,#C77480)"></div>
+
+          <div style="padding:16px 18px 6px">
+            <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:30px;color:#7E9469;line-height:1.05">Усадьба «Долина счастья»</p>
+
+            <div style="display:flex;gap:9px;align-items:flex-start;margin-top:12px">
+              <svg width="16" viewBox="0 0 24 24" fill="none" stroke="#7E9469" stroke-width="2" style="flex:none;margin-top:2px"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z"></path><circle cx="12" cy="9" r="2.6"></circle></svg>
+              <p style="margin:0;font-size:14.5px;color:#5F5A4D;line-height:1.4">д. Бенякони, ул. Беняконцы, 41<br><span style="color:#A8956F;font-size:13px">Гродненская обл., Вороновский р-н</span></p>
+            </div>
+
+            <div style="display:flex;gap:9px;align-items:center;margin-top:9px">
+              <svg width="16" viewBox="0 0 24 24" fill="none" stroke="#D64545" stroke-width="2" stroke-linecap="round" style="flex:none"><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16 M8 4v4 M16 4v4"></path></svg>
+              <p style="margin:0;font-size:14.5px;color:#5F5A4D">19.09.2026, начало в 16:00</p>
+            </div>
+
+            <div style="display:flex;gap:9px;align-items:center;margin-top:9px">
+              <svg width="16" viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M4 16 l1.5-5a2 2 0 0 1 2-1.4h9a2 2 0 0 1 2 1.4L20 16"></path><rect x="3" y="16" width="18" height="4" rx="1.5"></rect><circle cx="7.5" cy="20" r="1.6"></circle><circle cx="16.5" cy="20" r="1.6"></circle></svg>
+              <p style="margin:0;font-size:14.5px;color:#5F5A4D">Бесплатная парковка для гостей</p>
+            </div>
+
+            <div style="display:flex;gap:9px;align-items:flex-start;margin-top:12px;padding:10px 12px;background:#FBEFD9;border-radius:10px;border:1.5px solid #E9CE8F">
+              <svg width="17" viewBox="0 0 24 24" fill="none" stroke="#B8860B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px"><path d="M12 3 L21.5 19.5 H2.5 Z"></path><path d="M12 9.5v4.5"></path><circle cx="12" cy="16.8" r="1" fill="#B8860B" stroke="none"></circle></svg>
+              <p style="margin:0;font-size:13.5px;line-height:1.45;color:#6B5A2E"><b>Важно:</b> площадка находится в приграничной зоне — пожалуйста, возьмите с собой паспорт.</p>
+            </div>
+          </div>
+
+          <iframe title="Карта площадки" src="https://yandex.ru/map-widget/v1/?ll=25.373212%2C54.256297&amp;z=15&amp;mode=search&amp;text=Усадьба%20Долина%20счастья%2C%20Бенякони" style="width:100%;height:190px;border:0;margin-top:14px" loading="lazy"></iframe>
+
+          <div style="padding:14px 18px 4px">
+            <a href="https://yandex.com/maps/-/CTqb468L" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;font-family:'Nunito';font-weight:800;font-size:14px;color:#fff;background:#7E9469;padding:11px;border-radius:12px" style-hover="background:#6F8759">Построить маршрут →</a>
+          </div>
+
+          <!-- accommodation -->
+          <div style="margin:14px 18px 18px;padding:14px 16px;background:#F4EFE1;border-radius:12px;border:1.5px dashed #C9B99A">
+            <div style="display:flex;gap:8px;align-items:center">
+              <svg width="16" viewBox="0 0 24 24" fill="none" stroke="#9B85C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M3 18v-7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3"></path><path d="M21 18v-3a2 2 0 0 0-2-2h-8"></path><path d="M3 15h18v3"></path></svg>
+              <p style="margin:0;font-family:'Caveat';font-weight:700;font-size:19px;color:#9B85C4">Ночёвка: гостиница «Вороново»</p>
+            </div>
+            <p style="margin:6px 0 0;font-size:13.5px;line-height:1.45;color:#7A7566">Будет организован трансфер — не переживайте о дороге домой.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- divider -->
+    <div style="display:flex;align-items:center;gap:10px;padding:0 30px">
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+      <svg width="20" viewBox="0 0 24 24" fill="#D64545" style="opacity:.8"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+    </div>
+
+    <!-- ===================== #DRESS — ДРЕСС-КОД ===================== -->
+    <section id="dress" data-screen-label="Дресс-код" style="padding:26px 22px 26px;scroll-margin-top:64px">
+      <div style="text-align:center;margin-bottom:6px">
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:44px;color:#9B85C4;margin:0;line-height:1">Что надеть?</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px 8px;max-width:360px;margin:18px auto 0">
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#5B8DBF;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#5B8DBF">Василёк</p>
+        </div>
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#E0902E;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#C2740E">Бархатцы</p>
+        </div>
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#F4E4A1;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#C79A2E">Ромашка</p>
+        </div>
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#B8A5D9;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#9B85C4">Лаванда</p>
+        </div>
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#9BAE8A;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#7E9469">Шалфей</p>
+        </div>
+        <div style="text-align:center">
+          <div style="width:58px;height:58px;border-radius:50%;background:#E8B4B8;margin:0 auto;box-shadow:0 2px 0 rgba(62,59,51,.12)"></div>
+          <p style="margin:6px 0 0;font-family:'Caveat';font-weight:600;font-size:19px;color:#C77480">Пыльная роза</p>
+        </div>
+      </div>
+
+      <p style="max-width:360px;margin:20px auto 0;text-align:center;font-size:15px;line-height:1.55;color:#5F5A4D">Мы — за красоту без рамок. Вдохновение нашего дня — полевые цветы, но приходите в любом образе, в котором вам комфортно 🤍</p>
+    </section>
+
+    <!-- divider -->
+    <div style="display:flex;align-items:center;gap:10px;padding:0 30px">
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+      <svg width="22" viewBox="0 0 24 24" fill="#5B8DBF" style="opacity:.8"><circle cx="12" cy="12" r="3.4"></circle></svg>
+      <div style="flex:1;height:0;border-top:2px dashed #D9CBAB"></div>
+    </div>
+
+    <!-- ===================== #GIFTS — ПОДАРКИ ===================== -->
+    <section id="gifts" data-screen-label="Подарки" style="padding:26px 22px 26px;scroll-margin-top:64px">
+      <div style="text-align:center;margin-bottom:10px">
+        <p style="font-family:'Prata',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#B0A079;margin:0">подарки</p>
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:44px;color:#D64545;margin:0;line-height:1">Пожелания</h2>
+      </div>
+
+      <!-- envelope + bouquet line illustration -->
+      <div style="display:flex;justify-content:center;margin:6px 0 10px">
+        <svg width="150" viewBox="0 0 160 110" fill="none" stroke="#C77480" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+          <rect x="18" y="40" width="86" height="58" rx="6" fill="#FBF7EE"></rect>
+          <path d="M18 46 L61 74 L104 46"></path>
+          <path d="M104 60 v34 M18 60 v34"></path>
+          <!-- little bouquet by the envelope -->
+          <g stroke="#7E9469"><path d="M132 98 V64 M132 78 L122 68 M132 78 L142 68"></path></g>
+          <circle cx="122" cy="60" r="7" fill="#F4E4A1" stroke="#D9A441"></circle>
+          <circle cx="142" cy="58" r="7" fill="#E1EAF3" stroke="#5B8DBF"></circle>
+          <circle cx="132" cy="50" r="7" fill="#F3E1E4" stroke="#D64545"></circle>
+          <path d="M61 78 c-3 -4 -3 -8 0 -10 c3 2 3 6 0 10 z" fill="#E8B4B8" stroke="#C77480"></path>
+        </svg>
+      </div>
+
+      <p style="max-width:380px;margin:0 auto;text-align:center;font-size:15px;line-height:1.6;color:#5F5A4D">Полевые цветы прекрасны, но живут недолго — а нам хочется чего-то на память. Если захотите порадовать нас подарком, будем благодарны за вклад в наш общий бюджет молодой семьи. <span style="color:#C77480;font-weight:700">[реквизиты / детали — плейсхолдер]</span></p>
+    </section>
+
+    <!-- ===================== #RSVP ===================== -->
+    <section id="rsvp" data-screen-label="RSVP" style="padding:16px 18px 30px;scroll-margin-top:64px">
+      <div style="position:relative;background:#DCE4CE;border-radius:24px;padding:26px 20px 24px;text-align:center;overflow:hidden">
+        <svg width="14" viewBox="0 0 24 24" fill="#D64545" style="position:absolute;left:18px;top:20px;opacity:.55;transform:rotate(-14deg)"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+        <svg width="12" viewBox="0 0 24 24" fill="#5B8DBF" style="position:absolute;right:22px;top:34px;opacity:.5;transform:rotate(12deg)"><path d="M12 21c-5.5-4-9-7.6-9-12A5 5 0 0 1 12 6 5 5 0 0 1 21 9c0 4.4-3.5 8-9 12z"></path></svg>
+
+        <p style="font-family:'Prata',serif;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#7E9469;margin:0">rsvp</p>
+        <h2 style="font-family:'Caveat';font-weight:700;font-size:40px;color:#4C6B3E;margin:2px 0 4px;line-height:1.02">Подтвердите присутствие<br>до 15.08</h2>
+        <p style="max-width:320px;margin:6px auto 18px;font-size:14.5px;line-height:1.5;color:#5A5C48">Нажмите кнопку — откроется Telegram с готовым сообщением, останется только дописать детали и отправить.</p>
+
+        <div style="display:flex;flex-direction:column;gap:11px;max-width:320px;margin:0 auto">
+          <a href="{{ rsvpYes }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:'Nunito';font-weight:800;font-size:16px;color:#fff;background:#7E9469;padding:15px;border-radius:14px;box-shadow:0 3px 0 #5E7350" style-hover="background:#6F8759">
+            <svg width="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 L9.5 18 L20 6"></path></svg>
+            Буду на свадьбе!
+          </a>
+          <a href="{{ rsvpNo }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:'Nunito';font-weight:700;font-size:15px;color:#8A7B6A;background:transparent;padding:12px;border-radius:14px;border:2px solid #C3B49B" style-hover="background:#EFE7D3">
+            К сожалению, не смогу быть
+          </a>
+        </div>
+        <p style="margin:16px 0 0;font-family:'Marck Script',cursive;font-size:18px;color:#7E9469">тг: @{{ telegramHandle }}</p>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer style="text-align:center;padding:10px 20px 40px">
+      <svg width="34" viewBox="0 0 40 40" style="display:block;margin:0 auto 6px">
+        <g fill="#EFE7D6" stroke="#9BAE8A" stroke-width="1.4"><ellipse cx="20" cy="8" rx="3.2" ry="6"></ellipse><ellipse cx="20" cy="32" rx="3.2" ry="6"></ellipse><ellipse cx="8" cy="20" rx="6" ry="3.2"></ellipse><ellipse cx="32" cy="20" rx="6" ry="3.2"></ellipse><ellipse cx="11.5" cy="11.5" rx="5.5" ry="3" transform="rotate(45 11.5 11.5)"></ellipse><ellipse cx="28.5" cy="11.5" rx="5.5" ry="3" transform="rotate(-45 28.5 11.5)"></ellipse><ellipse cx="11.5" cy="28.5" rx="5.5" ry="3" transform="rotate(-45 11.5 28.5)"></ellipse><ellipse cx="28.5" cy="28.5" rx="5.5" ry="3" transform="rotate(45 28.5 28.5)"></ellipse></g>
+        <circle cx="20" cy="20" r="5" fill="#F4E4A1"></circle>
+      </svg>
+      <p style="font-family:'Marck Script',cursive;font-size:22px;color:#7E9469;margin:0">с любовью, Паша &amp; Алина</p>
+    </footer>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{
+  &quot;$preview&quot;: { &quot;width&quot;: 430 },
+  &quot;bridePhoto&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Фото&quot; },
+  &quot;groomPhoto&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Фото&quot; },
+  &quot;telegramUser&quot;: { &quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;pav_lt_vno&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;RSVP&quot; }
+}">
+class Component extends DCLogic {
+  renderVals() {
+    const u = (this.props.telegramUser || 'username').replace(/^@/, '');
+    // Telegram's own ?text= decoder only unescapes multi-byte (non-ASCII) sequences —
+    // plain ASCII punctuation like %2C/%3A/%2F/%5B/%5D is left literally in the compose box.
+    // So keep the required delimiters escaped (space, & = # %) and restore everything else.
+    const enc = (s) => encodeURIComponent(s)
+      .replace(/%20/g, '+')
+      .replace(/%2C/g, ',')
+      .replace(/%3A/g, ':')
+      .replace(/%2F/g, '/')
+      .replace(/%5B/g, '[')
+      .replace(/%5D/g, ']')
+      .replace(/%28/g, '(')
+      .replace(/%29/g, ')')
+      .replace(/%3F/g, '?');
+    const yes = 'Привет! Буду на свадьбе 19.09.2026. Нас будет — впишите число человек. Аллергии или пожелания по еде — впишите здесь.';
+    const no = 'Привет! Спасибо за приглашение, но, к сожалению, не смогу быть на свадьбе 19.09.2026. Обнимаю вас!';
+    return {
+      bridePhoto: this.props.bridePhoto || 'images/alina.png',
+      groomPhoto: this.props.groomPhoto || 'images/pasha.png',
+      rsvpYes: 'https://t.me/' + u + '?text=' + enc(yes),
+      rsvpNo: 'https://t.me/' + u + '?text=' + enc(no),
+      telegramHandle: u,
+    };
+  }
+}
+</script>
+
+
+</body></html>
